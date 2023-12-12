@@ -1,0 +1,578 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormAddAnotation Component snapshot 1`] = `
+.c5 {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.c5 span {
+  color: red;
+  margin-right: 3px;
+}
+
+.c7 {
+  padding: 8px;
+  border: 1px solid #00abff;
+  margin: 1px;
+  width: 100%;
+  background-color: '';
+}
+
+.c7:focus {
+  outline: none;
+  border: 2px solid #00abff;
+  margin: 0;
+}
+
+.c4 {
+  margin-bottom: 25px;
+  position: relative;
+  max-width: 350px;
+  width: 100%;
+}
+
+.c4.primary .c6 {
+  border-radius: 8px;
+}
+
+.c4.secondary .c6 {
+  border-radius: 8px 0;
+}
+
+.c4.error {
+  color: #ff0000;
+}
+
+.c4.error .c6 {
+  border: 1px solid #ff0000;
+}
+
+.c4.error .c6:focus {
+  border: 2px solid #ff0000;
+}
+
+.c9 {
+  margin-bottom: 25px;
+  position: relative;
+  max-width: 150px;
+  width: 100%;
+}
+
+.c9.primary .c6 {
+  border-radius: 8px;
+}
+
+.c9.secondary .c6 {
+  border-radius: 8px 0;
+}
+
+.c9.error {
+  color: #ff0000;
+}
+
+.c9.error .c6 {
+  border: 1px solid #ff0000;
+}
+
+.c9.error .c6:focus {
+  border: 2px solid #ff0000;
+}
+
+.c11 {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background-color: '';
+}
+
+.c11 span {
+  font-size: 14px;
+  color: red;
+  margin-right: 3px;
+}
+
+.c10 {
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  width: 150px;
+  border: 1px solid #00abff;
+  position: relative;
+}
+
+.c10.primary {
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.c10.secondary {
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px 0;
+}
+
+.c10.error {
+  border: 1px solid #ff0000;
+  color: #ff0000;
+}
+
+.c10.error:focus {
+  border: 2px solid #ff0000;
+}
+
+.c10 select {
+  display: none;
+}
+
+.c10.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c10 .custom-select-trigger {
+  width: 100%;
+  cursor: pointer;
+  height: 20px;
+}
+
+.c10 .custom-options {
+  background-color: '';
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #00abff;
+  max-width: 150px;
+  width: 100%;
+  max-height: 114px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.c10 .custom-options.primary {
+  border-radius: 8px;
+}
+
+.c10 .custom-options.secondary {
+  border-radius: 8px 0;
+}
+
+.c10 .custom-option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.c10 .custom-option:hover {
+  background-color: '';
+  color: #00abff;
+}
+
+.c15 {
+  padding: 8px;
+  border: 1px solid #00abff;
+  margin: 1px;
+  resize: none;
+  width: 100%;
+  height: 100%;
+}
+
+.c15:focus {
+  outline: none;
+  border: 2px solid #00abff;
+  margin: 0;
+}
+
+.c13 {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background-color: '';
+}
+
+.c13 span {
+  font-size: 14px;
+  color: red;
+  margin-right: 3px;
+}
+
+.c12 {
+  margin-bottom: 25px;
+  max-width: 350px;
+  height: 120px;
+  position: relative;
+}
+
+.c12.primary .c14 {
+  border-radius: 8px;
+}
+
+.c12.secondary .c14 {
+  border-radius: 8px 0;
+}
+
+.c12.error {
+  color: #ff0000;
+}
+
+.c12.error .c14 {
+  border: 1px solid #ff0000;
+}
+
+.c12.error .c14:focus {
+  border: 2px solid #ff0000;
+}
+
+.c16 {
+  padding: 8px;
+  border-radius: 8px;
+  margin-right: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+  height: 500px;
+  width: 350px;
+  border-radius: 16px;
+  border: 1px solid #999;
+}
+
+.c1 {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  color: #7a1616;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c3 {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.c8 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c17 {
+  background-color: #2c6600;
+}
+
+.c18 {
+  background-color: #7a1616;
+}
+
+<div>
+   
+  <div
+    class="c0"
+  >
+    <i
+      class="c1"
+      title="close form"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+        />
+      </svg>
+    </i>
+    <form
+      class="c2"
+    >
+      <h2
+        class="c3"
+      >
+        formulario
+      </h2>
+      <div
+        class="c4 primary undefined"
+      >
+        <label
+          class="c5"
+          for="name-id"
+        >
+          <span>
+            *
+          </span>
+          Nome
+        </label>
+        <input
+          class="c6 c7"
+          id="name-id"
+          name="name"
+          required=""
+          title="title-name"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          class="c9 primary undefined"
+        >
+          <label
+            class="c5"
+            for="date-id"
+          >
+            <span>
+              *
+            </span>
+            Data
+          </label>
+          <input
+            class="c6 c7"
+            id="date-id"
+            name="date"
+            required=""
+            title="title-date"
+            type="date"
+            value=""
+          />
+        </div>
+        <div
+          class="c9 primary undefined"
+        >
+          <label
+            class="c5"
+            for="time-id"
+          >
+            <span>
+              *
+            </span>
+            Hora
+          </label>
+          <input
+            class="c6 c7"
+            id="time-id"
+            name="time"
+            required=""
+            title="title-time"
+            type="time"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          class="c10 primary undefined"
+        >
+          <div
+            class="custom-select"
+          >
+            <label
+              class="c11"
+              for="category"
+            >
+               
+              Categoria
+            </label>
+            <div
+              class="custom-select-trigger primary undefined"
+              data-testid="select-category"
+              id="category"
+            />
+            <div
+              class="custom-options primary undefined"
+            >
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="finanças"
+              >
+                finanças
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="comida"
+              >
+                comida
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="estudo"
+              >
+                estudo
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="trabalho"
+              >
+                trabalho
+              </div>
+            </div>
+            <select
+              id="real-select"
+            >
+              <option
+                value="finanças"
+              >
+                finanças
+              </option>
+              <option
+                value="comida"
+              >
+                comida
+              </option>
+              <option
+                value="estudo"
+              >
+                estudo
+              </option>
+              <option
+                value="trabalho"
+              >
+                trabalho
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="c10 primary undefined"
+        >
+          <div
+            class="custom-select"
+          >
+            <label
+              class="c11"
+              for="priority"
+            >
+               
+              Prioridade
+            </label>
+            <div
+              class="custom-select-trigger primary undefined"
+              data-testid="select-priority"
+              id="priority"
+            />
+            <div
+              class="custom-options primary undefined"
+            >
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="urgente"
+              >
+                urgente
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="alta"
+              >
+                alta
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="media"
+              >
+                media
+              </div>
+              <div
+                class="custom-option"
+                data-testid="options"
+                data-value="baixa"
+              >
+                baixa
+              </div>
+            </div>
+            <select
+              id="real-select"
+            >
+              <option
+                value="urgente"
+              >
+                urgente
+              </option>
+              <option
+                value="alta"
+              >
+                alta
+              </option>
+              <option
+                value="media"
+              >
+                media
+              </option>
+              <option
+                value="baixa"
+              >
+                baixa
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c12 primary undefined"
+      >
+        <label
+          class="c13"
+          for="description"
+        >
+          Descrição
+        </label>
+        <textarea
+          class="c14 c15"
+          id="description"
+          name="description"
+          title="message"
+        />
+      </div>
+      <div
+        class="c8"
+      >
+        <button
+          class="c16 c17"
+          type="submit"
+        >
+          Salvar
+        </button>
+        <button
+          class="c16 c18"
+          type="button"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+   
+</div>
+`;

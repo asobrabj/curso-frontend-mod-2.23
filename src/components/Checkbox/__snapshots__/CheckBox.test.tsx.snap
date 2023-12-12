@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox Component deve renderizar corretamente 1`] = `
+.c0 {
+  display: flex;
+  color: #999;
+  font-weight: bold;
+}
+
+.c0 >input {
+  margin-right: 8px;
+}
+
+<div>
+   
+  <div
+    class="c0"
+  >
+    <input
+      id="concluded"
+      type="checkbox"
+    />
+    <label
+      for="concluded"
+    >
+      concluido
+    </label>
+  </div>
+   
+</div>
+`;

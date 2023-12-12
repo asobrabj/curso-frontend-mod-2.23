@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Component snapshot 1`] = `
+.c0 {
+  text-transform: capitalize;
+  padding: 2px 9px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+<div>
+   
+  <span
+    class="c0"
+  />
+   
+</div>
+`;

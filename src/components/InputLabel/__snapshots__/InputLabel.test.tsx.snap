@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputLabel Component deve renderizar corretamente 1`] = `
+.c1 {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.c1 span {
+  color: red;
+  margin-right: 3px;
+}
+
+.c3 {
+  padding: 8px;
+  border: 1px solid #00abff;
+  margin: 1px;
+  width: 100%;
+  background-color: '';
+}
+
+.c3:focus {
+  outline: none;
+  border: 2px solid #00abff;
+  margin: 0;
+}
+
+.c0 {
+  position: relative;
+  max-width: 200px;
+  width: 100%;
+}
+
+.c0.primary .c2 {
+  border-radius: 8px;
+}
+
+.c0.secondary .c2 {
+  border-radius: 8px 0;
+}
+
+.c0.error {
+  color: #ff0000;
+}
+
+.c0.error .c2 {
+  border: 1px solid #ff0000;
+}
+
+.c0.error .c2:focus {
+  border: 2px solid #ff0000;
+}
+
+<div>
+   
+  <div
+    class="c0 primary undefined"
+  >
+    <label
+      class="c1"
+      for="name-id"
+    >
+      <span>
+        *
+      </span>
+      Nome
+    </label>
+    <input
+      class="c2 c3"
+      id="name-id"
+      name="name"
+      required=""
+      title="title-name"
+      type="text"
+    />
+  </div>
+   
+</div>
+`;
+
+exports[`InputLabel Component snapshot 1`] = `
+.c1 {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.c1 span {
+  color: red;
+  margin-right: 3px;
+}
+
+.c3 {
+  padding: 8px;
+  border: 1px solid #00abff;
+  margin: 1px;
+  width: 100%;
+  background-color: '';
+}
+
+.c3:focus {
+  outline: none;
+  border: 2px solid #00abff;
+  margin: 0;
+}
+
+.c0 {
+  position: relative;
+  max-width: 200px;
+  width: 100%;
+}
+
+.c0.primary .c2 {
+  border-radius: 8px;
+}
+
+.c0.secondary .c2 {
+  border-radius: 8px 0;
+}
+
+.c0.error {
+  color: #ff0000;
+}
+
+.c0.error .c2 {
+  border: 1px solid #ff0000;
+}
+
+.c0.error .c2:focus {
+  border: 2px solid #ff0000;
+}
+
+<div>
+   
+  <div
+    class="c0 primary undefined"
+  >
+    <label
+      class="c1"
+      for="name-id"
+    >
+      Nome
+    </label>
+    <input
+      class="c2 c3"
+      id="name-id"
+      name="name"
+      title="title-name"
+      type="text"
+    />
+  </div>
+   
+</div>
+`;

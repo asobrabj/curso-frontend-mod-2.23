@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component snapshot 1`] = `
+.c0 {
+  margin-left: 120px;
+  border: 1px solid;
+  border-radius: 8px;
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.c0::placeholder {
+  color: #999;
+}
+
+<div>
+   
+  <input
+    class="c0"
+    name="search"
+    placeholder="filtrar anotações"
+    type="text"
+    value=""
+  />
+   
+</div>
+`;
