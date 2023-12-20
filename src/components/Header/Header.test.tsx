@@ -29,7 +29,9 @@ describe('Header Component', () => {
     expect(changeThemeMock).toHaveBeenCalledTimes(1)
   })
   it('snapshot', () => {
-    const { container } = renderTheme(<Header />)
+    const { container } = renderTheme(<Header isDark={false} changeTheme={function (): void {
+      throw new Error('Function not implemented.')
+    } } />)
     expect(container).toMatchSnapshot()
   })
 })

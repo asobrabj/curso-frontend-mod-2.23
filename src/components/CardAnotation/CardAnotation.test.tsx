@@ -128,8 +128,8 @@ describe('CardAnotation Component', () => {
     )
 
     waitFor(() => {
-      expect(screen.getByText(mockData.category)).toBeInTheDocument()
-      expect(screen.getByText(mockData.priority)).toBeInTheDocument()
+      expect(screen.getByText(mockData.category!)).toBeInTheDocument()
+      expect(screen.getByText(mockData.priority!)).toBeInTheDocument()
     })
   })
 

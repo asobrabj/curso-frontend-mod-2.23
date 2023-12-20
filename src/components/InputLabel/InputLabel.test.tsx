@@ -1,6 +1,7 @@
-import { fireEvent, screen } from '@testing-library/react'
-import InputLabel from '.'
-import { renderTheme } from '../../utils/styles-test'
+import { fireEvent, screen } from '@testing-library/react';
+import 'jest-styled-components';
+import InputLabel from '.';
+import { renderTheme } from '../../utils/styles-test';
 
 describe('InputLabel Component', () => {
   it('deve renderizar corretamente', () => {
@@ -44,6 +45,8 @@ describe('InputLabel Component', () => {
     const asterisk = getByText('*')
     expect(asterisk).toBeInTheDocument()
   })
+
+
 
   it('snapshot', () => {
     const onChangeMock = jest.fn()

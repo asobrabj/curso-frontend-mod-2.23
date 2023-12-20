@@ -45,7 +45,9 @@ describe('ContainerMain Component', () => {
   it('snapshot', () => {
     const { container } = renderTheme(
       <ModalProvider>
-        <ContainerMain />
+        <ContainerMain isDark={false} changeTheme={function (): void {
+          throw new Error('Function not implemented.')
+        } } />
       </ModalProvider>
     )
     expect(container).toMatchSnapshot()

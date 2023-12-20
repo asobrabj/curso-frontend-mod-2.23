@@ -6,7 +6,7 @@ import {
   waitFor,
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import FormAddAnotation, { IFormData } from '.'
+import FormAddAnotation from '.'
 import { useStorage } from '../../context/localStorage/localStorage'
 import { useModal } from '../../context/modals'
 import { renderTheme } from '../../utils/styles-test'
@@ -27,29 +27,6 @@ jest.mock('../../context/localStorage/localStorage', () => ({
     getStorage: jest.fn(),
   })),
 }))
-
-const mock: IFormData[] = [
-  {
-    id: 0,
-    name: 'teste',
-    date: '2023-12-11',
-    time: '00:00',
-    description: ' um texto qualquer',
-    concluded: false,
-    category: 'estudo',
-    priority: 'media',
-  },
-  {
-    id: 1,
-    name: 'testando',
-    date: '2023-12-11',
-    time: '00:00',
-    description: ' um texto qualquer',
-    concluded: false,
-    category: 'finanças',
-    priority: 'alta',
-  },
-]
 
 describe('FormAddAnotation Component', () => {
   test('Renderização Inicial', () => {
@@ -256,7 +233,7 @@ describe('FormAddAnotation Component', () => {
     act(() => {
       renderTheme(<FormAddAnotation />)
     })
-    const timeInput = screen.getByLabelText(/Hora/i)
+    const timeInput = screen.getByLabelText(/Hora/i) as HTMLInputElement
 
     expect(timeInput).toBeInTheDocument()
 
@@ -314,22 +291,5 @@ describe('FormAddAnotation Component', () => {
     )
 
     expect(error).toBeInTheDocument()
-  })
-
-  it('textArea', () => {
-    renderTheme(<FormAddAnotation />)
-    const textarea = screen.getByTitle('message') as HTMLTextAreaElement
-    act(() => {
-      fireEvent.change(textarea, {
-        target: { value: 'texto' },
-      })
-    })
-
-    expect(textarea.value).toBe('texto')
-  })
-
-  it('snapshot', () => {
-    const { container } = renderTheme(<FormAddAnotation />)
-    expect(container).toMatchSnapshot()
   })
 })

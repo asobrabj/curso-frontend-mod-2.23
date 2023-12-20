@@ -1,5 +1,5 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
-import { ModalProvider, useModal } from '../../context/modals'
+import { IModalContext, ModalProvider, useModal } from '../../context/modals'
 import { renderTheme } from '../../utils/styles-test'
 import CardDetail from './'
 
@@ -18,16 +18,24 @@ const mockData = {
   description: 'Teste Jest',
 }
 
+const mockModalContext: IModalContext = {
+  setIsVisible: jest.fn(),
+  setIsForm: jest.fn(),
+  setDataCard: jest.fn(),
+  setIdCard: jest.fn(),
+  isVisible: false,
+  isForm: false,
+  dataCard: mockData,
+  idCard: null
+}
+
 describe('CardDetail Component', () => {
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
   it('deve renderizar corretamente com os dados fornecidos', () => {
-    mockUseModal.mockReturnValueOnce({
-      setIsVisible: jest.fn(),
-      dataCard: mockData,
-    })
+    mockUseModal.mockReturnValueOnce(mockModalContext)
 
     renderTheme(
       <ModalProvider>
@@ -45,10 +53,7 @@ describe('CardDetail Component', () => {
   })
 
   it('deve chamar a função setIsVisible ao fechar o card', () => {
-    mockUseModal.mockReturnValueOnce({
-      setIsVisible: jest.fn(),
-      dataCard: mockData,
-    })
+    mockUseModal.mockReturnValueOnce(mockModalContext)
 
     renderTheme(
       <ModalProvider>
@@ -62,10 +67,8 @@ describe('CardDetail Component', () => {
     })
   })
   it('deve exibir a categoria e a prioridade corretamente', () => {
-    mockUseModal.mockReturnValueOnce({
-      setIsVisible: jest.fn(),
-      dataCard: mockData,
-    })
+    mockUseModal.mockReturnValueOnce(mockModalContext)
+
 
     renderTheme(
       <ModalProvider>
@@ -83,12 +86,7 @@ describe('CardDetail Component', () => {
   })
 
   it('deve exibir mensagem se não houver descrição', () => {
-    const dataWithoutDescription = { ...mockData, description: undefined }
-
-    mockUseModal.mockReturnValueOnce({
-      setIsVisible: jest.fn(),
-      dataCard: dataWithoutDescription,
-    })
+    mockUseModal.mockReturnValueOnce({...mockModalContext, dataCard:{...mockData, description: undefined}})
 
     renderTheme(
       <ModalProvider>

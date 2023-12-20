@@ -45,7 +45,7 @@ describe('SelectLabel Component', () => {
     })
   })
   it('snapshot', () => {
-    const { container } = renderTheme(<SelectLabel listOptions={mockOptions} />)
+    const { container } = renderTheme(<SelectLabel listOptions={mockOptions} required={false} label={''} id={''} />)
     expect(container).toMatchSnapshot()
   })
 })

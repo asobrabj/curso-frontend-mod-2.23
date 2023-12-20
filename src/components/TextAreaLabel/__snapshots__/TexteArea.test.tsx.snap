@@ -62,9 +62,12 @@ exports[`TextAreaLabel Component snapshot 1`] = `
   >
     <label
       class="c1"
+      for=""
     />
     <textarea
       class="c2 c3"
+      id=""
+      name=""
     />
   </div>
    

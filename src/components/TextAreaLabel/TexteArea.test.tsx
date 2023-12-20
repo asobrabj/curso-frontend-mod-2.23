@@ -35,7 +35,7 @@ describe('TextAreaLabel Component', () => {
     expect(getByText('*')).toBeInTheDocument()
   })
   it('snapshot', () => {
-    const { container } = renderTheme(<TextAreaLabel />)
+    const { container } = renderTheme(<TextAreaLabel required={false} label={''} id={''} />)
 
     expect(container).toMatchSnapshot()
   })

@@ -33,7 +33,7 @@ describe('Tag Component', () => {
   })
 
   it('snapshot', () => {
-    const { container } = renderTheme(<Tag />)
+    const { container } = renderTheme(<Tag name={''} text={''} background={''} />)
 
     expect(container).toMatchSnapshot()
   })

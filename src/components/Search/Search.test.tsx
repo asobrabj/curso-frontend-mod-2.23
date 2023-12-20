@@ -1,11 +1,21 @@
 import { fireEvent, screen } from '@testing-library/react'
 import Search from '.'
-import { useStorage } from '../../context/localStorage/localStorage'
+import { ILocalStorageContext } from '../../context/localStorage/localStorage'
 import { renderTheme } from '../../utils/styles-test'
 
+const mockStorage: ILocalStorageContext = {
+  anotations: [],
+  setAnotations: jest.fn(),
+  getFilters: jest.fn(),
+  getTags: jest.fn(),
+  getStorage: jest.fn(),
+  setStorage: jest.fn(),
+}
+
 jest.mock('../../context/localStorage/localStorage', () => ({
-  useStorage: jest.fn(() => ({ getFilters: jest.fn() })),
+  useStorage: jest.fn(() => mockStorage),
 }))
+
 
 describe('Search Component', () => {
   it('deve renderizar corretamente', () => {
@@ -15,15 +25,13 @@ describe('Search Component', () => {
   })
 
   it('deve chamar getFilters ao digitar no input', () => {
-    const mockGetFilters = jest.fn()
-    useStorage.mockReturnValue({ getFilters: mockGetFilters })
 
     renderTheme(<Search />)
     const inputElement = screen.getByPlaceholderText('filtrar anotações')
 
     fireEvent.change(inputElement, { target: { value: 'filtro' } })
 
-    expect(mockGetFilters).toHaveBeenCalledWith('filtro')
+    expect(mockStorage.getFilters).toHaveBeenCalledWith('filtro')
   })
 
   it('deve atualizar o estado do input corretamente', () => {

@@ -100,12 +100,14 @@ exports[`SelectLabel Component snapshot 1`] = `
     >
       <label
         class="c1"
+        for=""
       >
          
       </label>
       <div
         class="custom-select-trigger primary undefined"
-        data-testid="select-undefined"
+        data-testid="select-"
+        id=""
       />
       <div
         class="custom-options primary undefined"

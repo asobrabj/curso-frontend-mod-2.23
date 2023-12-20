@@ -5,7 +5,7 @@ import {
   LocalStorageProvider,
   useStorage,
 } from '../../context/localStorage/localStorage'
-import { ModalProvider, useModal } from '../../context/modals'
+import { IModalContext, ModalProvider, useModal } from '../../context/modals'
 import { renderTheme } from '../../utils/styles-test'
 
 jest.mock('../../context/modals')
@@ -48,10 +48,34 @@ const mockData = {
   priority: 'urgente',
 }
 
+const mockModalContext: IModalContext = {
+  setIsVisible: jest.fn(),
+  setIsForm: jest.fn(),
+  setDataCard: jest.fn(),
+  setIdCard: jest.fn(),
+  isVisible: false,
+  isForm: false,
+  dataCard: {
+    id: null,
+    concluded: false,
+    date: '',
+    description: '',
+    name: '',
+    category: '',
+    priority: '',
+    time: '',
+  },
+  idCard: null
+}
 const mockLocalStorageContext: ILocalStorageContext = {
   anotations: [
     { id: 1, ...mockData },
     { id: 2, ...mockData },
+    { id: 3, ...mockData },
+    { id: 4, ...mockData },
+    { id: 5, ...mockData },
+    { id: 6, ...mockData },
+    { id: 7, ...mockData },
   ],
   setAnotations: jest.fn(),
   getFilters: jest.fn(),
@@ -80,9 +104,7 @@ describe('Anotations Component', () => {
   })
 
   it('deve renderizar corretamente quando não há anotações', () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [],
-    })
+    mockUseStorage.mockReturnValue({...mockLocalStorageContext, anotations: []})
 
     renderTheme(<Anotations />)
 
@@ -91,17 +113,7 @@ describe('Anotations Component', () => {
   })
 
   it('deve chamar as funções corretas ao clicar nas setas de navegação', () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [
-        { id: 1, ...mockData },
-        { id: 2, ...mockData },
-        { id: 3, ...mockData },
-        { id: 4, ...mockData },
-        { id: 5, ...mockData },
-        { id: 6, ...mockData },
-        { id: 7, ...mockData },
-      ],
-    })
+    mockUseStorage.mockReturnValue(mockLocalStorageContext)
 
     renderTheme(<Anotations />)
 
@@ -122,23 +134,7 @@ describe('Anotations Component', () => {
   })
 
   it('editar card', async () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [
-        { id: 1, ...mockData },
-        { id: 2, ...mockData },
-        { id: 3, ...mockData },
-        { id: 4, ...mockData },
-        { id: 5, ...mockData },
-        { id: 6, ...mockData },
-        { id: 7, ...mockData },
-      ],
-    })
-    const mockModalContext = {
-      setIsVisible: jest.fn(),
-      setIsForm: jest.fn(),
-      setIdCard: jest.fn(),
-      setDataCard: jest.fn(),
-    }
+    mockUseStorage.mockReturnValue(mockLocalStorageContext)
     mockUseModal.mockReturnValue(mockModalContext)
 
     renderTheme(<Anotations />)
@@ -157,23 +153,7 @@ describe('Anotations Component', () => {
   })
 
   it('card detail', async () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [
-        { id: 1, ...mockData },
-        { id: 2, ...mockData },
-        { id: 3, ...mockData },
-        { id: 4, ...mockData },
-        { id: 5, ...mockData },
-        { id: 6, ...mockData },
-        { id: 7, ...mockData },
-      ],
-    })
-    const mockModalContext = {
-      setIsVisible: jest.fn(),
-      setIsForm: jest.fn(),
-      setIdCard: jest.fn(),
-      setDataCard: jest.fn(),
-    }
+    mockUseStorage.mockReturnValue(mockLocalStorageContext)
     mockUseModal.mockReturnValue(mockModalContext)
 
     renderTheme(<Anotations />)
@@ -192,24 +172,7 @@ describe('Anotations Component', () => {
   })
 
   it('delet', async () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [
-        { id: 1, ...mockData },
-        { id: 2, ...mockData },
-        { id: 3, ...mockData },
-        { id: 4, ...mockData },
-        { id: 5, ...mockData },
-        { id: 6, ...mockData },
-        { id: 7, ...mockData },
-      ],
-      setAnotations: jest.fn(),
-    })
-    const mockModalContext = {
-      setIsVisible: jest.fn(),
-      setIsForm: jest.fn(),
-      setIdCard: jest.fn(),
-      setDataCard: jest.fn(),
-    }
+    mockUseStorage.mockReturnValue(mockLocalStorageContext)
     mockUseModal.mockReturnValue(mockModalContext)
 
     renderTheme(<Anotations />)
@@ -227,44 +190,8 @@ describe('Anotations Component', () => {
     })
   })
 
-  it('delet', async () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [],
-      setAnotations: jest.fn(),
-    })
-    const mockModalContext = {
-      setIsVisible: jest.fn(),
-      setIsForm: jest.fn(),
-      setIdCard: jest.fn(),
-      setDataCard: jest.fn(),
-    }
-    mockUseModal.mockReturnValue(mockModalContext)
-
-    renderTheme(<Anotations />)
-    const btn = screen.getByText('Click aqui para adicionar')
-    await act(async () => {
-      fireEvent.click(btn)
-    })
-    waitFor(() => {
-      expect(mockModalContext.setIsVisible).toHaveBeenCalledWith(true)
-      expect(mockModalContext.setIsForm).toHaveBeenCalledWith(true)
-      expect(mockLocalStorageContext.setAnotations).toHaveBeenCalledWith(
-        expect.any(Function)
-      )
-    })
-  })
-
-  it('delet', async () => {
-    mockUseStorage.mockReturnValue({
-      anotations: [],
-      setAnotations: jest.fn(),
-    })
-    const mockModalContext = {
-      setIsVisible: jest.fn(),
-      setIsForm: jest.fn(),
-      setIdCard: jest.fn(),
-      setDataCard: jest.fn(),
-    }
+  it('Adicionar', async () => {
+    mockUseStorage.mockReturnValue({...mockLocalStorageContext, anotations: []})
     mockUseModal.mockReturnValue(mockModalContext)
 
     renderTheme(<Anotations />)
@@ -282,6 +209,8 @@ describe('Anotations Component', () => {
   })
 
   it('snapshot', () => {
+    mockUseStorage.mockReturnValue({...mockLocalStorageContext})
+
     const { container } = renderTheme(<Anotations />)
     expect(container).toMatchSnapshot()
   })
