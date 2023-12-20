@@ -115,7 +115,7 @@ export default function ModalAmount() {
   return (
     <Modal paddingSides='20' height='400' margin='30'>
       <S.Container onSubmit={handleSubmit(onSubmit)}>
-        <S.ContainerInput>
+        <S.ContainerInput data-testid='container-input'>
           <label htmlFor='to'>De:</label>
           <Controller
             name='to'

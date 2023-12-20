@@ -1,8 +1,19 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import ModalAmount from "."
 import { CurrencyProvider } from '../../context/Currencies'
 import { HistoryProvider } from '../../context/History'
 import axiosInstace from '../../service/axiosaInstace'
+import ListCurrencies from '../ListCurrencies'
+
+jest.mock('react', () => {
+  const originalModule = jest.requireActual('react');
+  return {
+    ...originalModule,
+    useContext: jest.fn(originalModule.useContext),
+  };
+});
+
+
 
 test('valores iniciais dos inputs', () => {
   render(<ModalAmount />)
@@ -57,10 +68,14 @@ test('deve reinderizar o elemento result', async () => {
   
 })
  
+
 test('deve reinderizar menssagems de erro', async () => {
   render(<CurrencyProvider><HistoryProvider><ModalAmount /></HistoryProvider></CurrencyProvider>)
-  const [messageInicial] = screen.getAllByText(/Digite uma moeda/i)
-  expect(messageInicial).toBeInTheDocument()
+  const containerInput = screen.getByTestId('container-input')
+  expect(containerInput).toBeInTheDocument()
+
+  let messageInicial: HTMLElement|null = within(containerInput).getByText(/Digite uma moeda/i)
+  expect(containerInput.contains(messageInicial)).toBeTruthy();
   
   const inputTo = screen.getByRole('textbox',{name:/De/i}) as HTMLInputElement
 
@@ -68,16 +83,43 @@ test('deve reinderizar menssagems de erro', async () => {
     fireEvent.change(inputTo, { target: { value: "US"  }})
   })
 
-  const [messageErroDigitacao] = screen.getAllByText(/Moeda inválida/i)
-  expect(messageErroDigitacao).toBeInTheDocument()
+  let messageErroDigitacao:HTMLElement|null = within(containerInput).getByText(/Moeda inválida/i)
+  messageInicial = within(containerInput).queryByText(/Digite uma moeda/i)
+
+  expect(containerInput.contains(messageErroDigitacao)).toBeTruthy();
+  expect(containerInput.contains(messageInicial)).toBeFalsy();
   expect(inputTo.value).toBe('US')
 
   act(() => {
     fireEvent.change(inputTo, { target: { value: "AAA"  }})
   })
 
-  const [messageErroMoedaInexistente] = screen.getAllByText(/Moeda não suportada/i)
-  expect(messageErroMoedaInexistente).toBeInTheDocument()
+  const messageErroMoedaInexistente = screen.getByText(/Moeda não suportada/i)
+  messageInicial = within(containerInput).queryByText(/Digite uma moeda/i)
+  messageErroDigitacao = within(containerInput).queryByText(/Moeda inválida/i)
+
+  expect(containerInput.contains(messageErroMoedaInexistente)).toBeTruthy();
+  expect(containerInput.contains(messageErroDigitacao)).toBeFalsy();
+  expect(containerInput.contains(messageInicial)).toBeFalsy();
   expect(inputTo.value).toBe('AAA')
   
- })
+})
+
+test('useEffect', async () => {
+  render(<CurrencyProvider><ModalAmount /><ListCurrencies request='to' /></CurrencyProvider>);
+
+  const inputTo = screen.getByRole('textbox', { name: /De/i }) as HTMLInputElement;
+  expect(inputTo.value).toBe('');
+
+  const li = screen.getAllByTitle('li-currency')[0] as HTMLLIElement  
+
+  act(() => {
+    fireEvent.click(li)
+  })
+
+  expect(inputTo.value).toBe(li.textContent)
+
+ 
+});
+
+

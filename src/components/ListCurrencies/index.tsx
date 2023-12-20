@@ -32,7 +32,7 @@ export default function ListCurrencies({
         {currencies && (
           <>
             {currencies.map(item => (
-              <S.ItemList onClick={() => setValue(item)} key={item}>
+              <S.ItemList title='li-currency' onClick={() => setValue(item)} key={item}>
                 {item}
               </S.ItemList>
             ))}

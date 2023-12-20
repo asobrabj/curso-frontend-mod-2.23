@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import axiosaInstace from '../service/axiosaInstace';
 import { CurrencyProvider, useCurrency } from './Currencies';
 
@@ -69,7 +69,7 @@ test('useCurrency retorna erro da api', async() => {
   );
 
   const { result } = renderHook(() => useCurrency(), { wrapper });
-  const data = await result.current.fecthConversion("TO","FROM",AMOUNT)
+  const data = await result.current.fecthConversion("AAA", "AAA", AMOUNT)  
   expect(data).toEqual("Erro na conversão");
-  expect(result.current.error).toBe(true)
+  waitFor(() => expect(result.current.error).toBe(true));
 });
